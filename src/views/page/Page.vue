@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue'
 import Banner from './cpns/Banner.vue'
 
 const images = ref([
