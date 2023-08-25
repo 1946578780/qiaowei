@@ -1,7 +1,5 @@
 <script setup lang="ts"></script>
 
 <template>
-  <RouterView />
+  <div class="flex justify-center h-full"></div>
 </template>
-
-<style scoped></style>

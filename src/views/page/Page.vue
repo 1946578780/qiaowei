@@ -10,7 +10,8 @@ const images = ref([
 </script>
 
 <template>
-  <div class="flex justify-center">
+  <div class="flex justify-center h-full">
+    <Menu></Menu>
     <Banner :images="images"> </Banner>
   </div>
 </template>
