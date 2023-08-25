@@ -9,43 +9,30 @@
       }"
       :navigation="true"
       :modules="modules"
-      class="mySwiper"
     >
-      <swiper-slide v-for="item in images" :key="item">
+      <swiper-slide v-for="(item, index) in images" :key="index">
         <img :src="item" class="w-full h-full" />
       </swiper-slide>
     </swiper>
   </div>
 </template>
 
-<script>
-import { Swiper, SwiperSlide } from 'swiper/vue'
-
+<script setup lang="ts">
 import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/navigation'
 
+import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Pagination, Navigation } from 'swiper/modules'
 
-export default {
-  components: {
-    Swiper,
-    SwiperSlide
-  },
+const modules = ref([Pagination, Navigation])
 
-  props: {
-    images: {
-      type: Array,
-      default: () => []
-    }
-  },
-
-  setup() {
-    return {
-      modules: [Pagination, Navigation]
-    }
+defineProps({
+  images: {
+    type: Array as any,
+    default: () => []
   }
-}
+})
 </script>
 
 <style scoped>

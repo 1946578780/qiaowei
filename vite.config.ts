@@ -5,6 +5,7 @@ import { defineConfig } from 'vite'
 
 import Vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
+import ViteCompression from 'vite-plugin-compression'
 
 export default defineConfig({
   build: {
@@ -31,6 +32,14 @@ export default defineConfig({
       imports: ['vue', 'vue-router'],
 
       dts: path.resolve('./', 'auto-imports.d.ts')
+    }),
+    ViteCompression({
+      verbose: true, // 默认即可
+      threshold: 10240, // 压缩前最小文件大小
+      disable: false, // 开启压缩(不禁用)，默认即可
+      deleteOriginFile: false, // 删除源文件
+      algorithm: 'gzip', // 压缩算法
+      ext: '.gz' //文件类型
     })
   ],
 
